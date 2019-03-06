@@ -6,9 +6,11 @@ function List(props) {
 
     const cardInfo = props.cards.map(card => 
         <Card
-
             title={card.title}
             content={card.content}
+            onDeleteItem={props.onDeleteItem}
+            key={card.id}
+            id={card.id}
         />    
     )
 
@@ -20,6 +22,10 @@ function List(props) {
             <div className='List-cards'>
                 {cardInfo}
             </div>
+            <button
+                onClick={ () => props.addRandomCard(props.id)}
+            >Add Card
+            </button>
         </section>
     )
 }
